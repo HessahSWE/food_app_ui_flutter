@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:food_app_ui_flutter/constrant.dart';
 import 'package:food_app_ui_flutter/demoData.dart';
@@ -63,7 +65,31 @@ class _MyHomePageState extends State<MyHomePage> {
               sliver: SliverToBoxAdapter(
                 child: SectionTitle(title: 'Featured Partners', press: () {}),
               ),
-            )
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.all(defaultPadding),
+              sliver: SliverToBoxAdapter(
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 200,
+                      child: Column(
+                        children: [
+                          AspectRatio(
+                            aspectRatio: 1.25,
+                            child: Image.asset("assets/images/big_2.jpg"),
+                          ),
+                          Text(demoMediumCardData[0]['name'],
+                              style: Theme.of(context).textTheme.headline6),
+                          Text(demoMediumCardData[0]['location'],
+                              style: const TextStyle(color: kBodyTextColor)),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

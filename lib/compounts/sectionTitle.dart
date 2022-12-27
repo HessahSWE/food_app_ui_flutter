@@ -21,9 +21,10 @@ class SectionTitle extends StatelessWidget {
           style: Theme.of(context).textTheme.headline6,
         ),
         TextButton(
-            onPressed: press,
-            style: TextButton.styleFrom(primary: kActiveColor),
-            child: const Text('Sell all'))
+          onPressed: press,
+          style: TextButton.styleFrom(primary: kActiveColor),
+          child: const Text('Sell all'),
+        ),
       ],
     );
   }
