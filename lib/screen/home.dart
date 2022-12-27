@@ -1,9 +1,8 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:food_app_ui_flutter/constrant.dart';
 import 'package:food_app_ui_flutter/demoData.dart';
-
+import '../compounts/RestaurantInfoMediumCard.dart';
 import '../compounts/imageCarouse.dart';
 import '../compounts/sectionTitle.dart';
 
@@ -69,24 +68,25 @@ class _MyHomePageState extends State<MyHomePage> {
             SliverPadding(
               padding: const EdgeInsets.all(defaultPadding),
               sliver: SliverToBoxAdapter(
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: 200,
-                      child: Column(
-                        children: [
-                          AspectRatio(
-                            aspectRatio: 1.25,
-                            child: Image.asset("assets/images/big_2.jpg"),
-                          ),
-                          Text(demoMediumCardData[0]['name'],
-                              style: Theme.of(context).textTheme.headline6),
-                          Text(demoMediumCardData[0]['location'],
-                              style: const TextStyle(color: kBodyTextColor)),
-                        ],
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: List.generate(
+                      demoMediumCardData.length,
+                      (index) => Padding(
+                        padding: const EdgeInsets.only(left: defaultPadding),
+                        child: RestaurantsInfoMediumCard(
+                          deliveryTime: demoMediumCardData[index]
+                              ['deliveryTime'],
+                          image: demoMediumCardData[index]['image'],
+                          location: demoMediumCardData[index]['location'],
+                          press: () {},
+                          rating: demoMediumCardData[index]['rating'],
+                          title: demoMediumCardData[index]['name'],
+                        ),
                       ),
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
